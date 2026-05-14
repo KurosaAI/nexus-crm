@@ -21,7 +21,7 @@ export default function Topbar({ user, rol, onMenuClick }: { user: SupabaseUser;
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [notifOpen, setNotifOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
-  const [notificaciones, setNotificaciones] = useState<{ id: string; tipo: string; mensaje: string; leida: boolean; created_at: string }[]>([])
+  const [notificaciones, setNotificaciones] = useState<{ id: string; tipo: string; mensaje: string; leida: boolean; created_at: string; referencia_id?: string | null }[]>([])
   const userMenuRef = useRef<HTMLDivElement>(null)
   const notifRef = useRef<HTMLDivElement>(null)
   const langRef = useRef<HTMLDivElement>(null)
@@ -181,7 +181,7 @@ export default function Topbar({ user, rol, onMenuClick }: { user: SupabaseUser;
                         <div className="min-w-0 flex-1">
                           <p className="text-xs font-semibold text-black dark:text-white leading-relaxed">{n.mensaje}</p>
                           <p className="text-[10px] text-black/30 font-medium mt-0.5">
-                            {new Date(n.created_at).toLocaleDateString(undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
+                            {new Date(n.created_at).toLocaleDateString("es-ES", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
                           </p>
                         </div>
                       </Link>
