@@ -1,0 +1,116 @@
+
+> crm-clientes@0.1.0 dev
+> next dev --port 3001
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://10.0.0.103:3001
+- Environments: .env.local
+✓ Ready in 1456ms
+
+ GET /dashboard/clientes 200 in 4.4s (next.js: 642ms, proxy.ts: 1555ms, application-code: 2.2s)
+ GET /api/notificaciones 200 in 2.5s (next.js: 220ms, proxy.ts: 1591ms, application-code: 670ms)
+ GET /dashboard/clientes 200 in 2.4s (next.js: 11ms, proxy.ts: 702ms, application-code: 1681ms)
+ GET /api/notificaciones 200 in 729ms (next.js: 89ms, proxy.ts: 198ms, application-code: 442ms)
+[acciones] insert error: {
+  code: '23514',
+  details: 'Failing row contains (43efae0a-828f-4997-935f-916df875cec2, f93bd01d-7879-474a-a36c-fb15ff6209c7, 6e56afef-21a3-4171-a214-b5e5188b1585, transfer, trasnferir, f2ff2741-8554-4c2d-9e0c-0916476dbbed, pendiente, null, 2026-05-14 16:57:00.732595+00, 2026-05-14 16:57:00.732595+00).',
+  hint: null,
+  message: 'new row for relation "acciones_clientes" violates check constraint "acciones_clientes_tipo_check"'
+}
+[acciones] catch error: {
+  code: '23514',
+  details: 'Failing row contains (43efae0a-828f-4997-935f-916df875cec2, f93bd01d-7879-474a-a36c-fb15ff6209c7, 6e56afef-21a3-4171-a214-b5e5188b1585, transfer, trasnferir, f2ff2741-8554-4c2d-9e0c-0916476dbbed, pendiente, null, 2026-05-14 16:57:00.732595+00, 2026-05-14 16:57:00.732595+00).',
+  hint: null,
+  message: 'new row for relation "acciones_clientes" violates check constraint "acciones_clientes_tipo_check"'
+}
+ POST /api/acciones 500 in 748ms (next.js: 68ms, proxy.ts: 309ms, application-code: 371ms)
+[acciones] cliente: {
+  nombre: 'José García',
+  admin_id: '94ac6358-a497-4ff5-abba-6986bdecb11d'
+} vendedor: { nombre: 'gonzales' } tipo: transfer
+ POST /api/acciones 200 in 1361ms (next.js: 6ms, proxy.ts: 389ms, application-code: 967ms)
+[acciones] cliente: {
+  nombre: 'Carmen Díaz',
+  admin_id: '94ac6358-a497-4ff5-abba-6986bdecb11d'
+} vendedor: { nombre: 'gonzales' } tipo: conflict
+ POST /api/acciones 200 in 1177ms (next.js: 4ms, proxy.ts: 361ms, application-code: 812ms)
+[acciones] cliente: {
+  nombre: 'Carlos Méndez',
+  admin_id: '94ac6358-a497-4ff5-abba-6986bdecb11d'
+} vendedor: { nombre: 'gonzales' } tipo: escalate
+ POST /api/acciones 200 in 1110ms (next.js: 5ms, proxy.ts: 326ms, application-code: 779ms)
+ GET /login 200 in 182ms (next.js: 68ms, proxy.ts: 9ms, application-code: 104ms)
+ GET /login 200 in 176ms (next.js: 11ms, proxy.ts: 33ms, application-code: 131ms)
+ GET /dashboard 200 in 2.0s (next.js: 8ms, proxy.ts: 266ms, application-code: 1729ms)
+ GET /dashboard 200 in 2.5s (next.js: 84ms, proxy.ts: 301ms, application-code: 2.1s)
+ GET /api/notificaciones 200 in 777ms (next.js: 6ms, proxy.ts: 242ms, application-code: 529ms)
+ GET /api/notificaciones 200 in 508ms (next.js: 7ms, proxy.ts: 168ms, application-code: 333ms)
+ GET /dashboard 200 in 2.4s (next.js: 14ms, proxy.ts: 170ms, application-code: 2.2s)
+ GET /api/notificaciones 200 in 486ms (next.js: 7ms, proxy.ts: 169ms, application-code: 310ms)
+ GET /dashboard/solicitudes 200 in 1143ms (next.js: 59ms, proxy.ts: 157ms, application-code: 927ms)
+ GET /dashboard/solicitudes 200 in 1836ms (next.js: 235ms, proxy.ts: 1359ms, application-code: 242ms)
+✓ Compiled in 544ms
+✓ Compiled in 4.3s
+✓ Compiled in 3.8s
+ GET /dashboard/solicitudes 200 in 9.3s (next.js: 620ms, proxy.ts: 8.0s, application-code: 683ms)
+ GET /dashboard/solicitudes 200 in 562ms (next.js: 8ms, proxy.ts: 375ms, application-code: 179ms)
+ GET /dashboard/solicitudes 200 in 672ms (next.js: 8ms, proxy.ts: 368ms, application-code: 296ms)
+ GET /dashboard/solicitudes 200 in 373ms (next.js: 6ms, proxy.ts: 205ms, application-code: 162ms)
+ GET /dashboard/solicitudes 200 in 340ms (next.js: 5ms, proxy.ts: 182ms, application-code: 153ms)
+ GET /dashboard/solicitudes 200 in 368ms (next.js: 6ms, proxy.ts: 168ms, application-code: 194ms)
+ GET /dashboard/solicitudes 200 in 883ms (next.js: 4ms, proxy.ts: 302ms, application-code: 577ms)
+ GET /dashboard/solicitudes 200 in 4.1s (next.js: 25ms, proxy.ts: 994ms, application-code: 3.1s)
+✓ Compiled in 130ms
+ GET /api/notificaciones 200 in 1263ms (next.js: 564ms, proxy.ts: 165ms, application-code: 535ms)
+ GET /dashboard/solicitudes 200 in 1200ms (next.js: 366ms, proxy.ts: 362ms, application-code: 472ms)
+ GET /api/notificaciones 200 in 2.1s (next.js: 162ms, proxy.ts: 766ms, application-code: 1168ms)
+✓ Compiled in 401ms
+ GET /dashboard/solicitudes 200 in 1406ms (next.js: 340ms, proxy.ts: 779ms, application-code: 287ms)
+✓ Compiled in 805ms
+ GET /dashboard/solicitudes 200 in 2.9s (next.js: 436ms, proxy.ts: 1432ms, application-code: 1032ms)
+ GET /dashboard/solicitudes 200 in 914ms (next.js: 5ms, proxy.ts: 600ms, application-code: 309ms)
+ GET /dashboard/solicitudes 200 in 797ms (next.js: 48ms, proxy.ts: 271ms, application-code: 478ms)
+ GET /dashboard/solicitudes 200 in 4.0s (next.js: 39ms, proxy.ts: 2.2s, application-code: 1783ms)
+ GET /api/notificaciones 200 in 1017ms (next.js: 158ms, proxy.ts: 177ms, application-code: 683ms)
+ GET /api/notificaciones 200 in 503ms (next.js: 4ms, proxy.ts: 157ms, application-code: 342ms)
+ GET /dashboard/solicitudes 200 in 3.8s (next.js: 2.9s, proxy.ts: 343ms, application-code: 533ms)
+✓ Compiled in 10.2s
+ GET /dashboard/solicitudes 200 in 4.2s (next.js: 300ms, proxy.ts: 3.2s, application-code: 716ms)
+ GET /dashboard/solicitudes 200 in 1574ms (next.js: 485ms, proxy.ts: 670ms, application-code: 420ms)
+ GET /dashboard/solicitudes 200 in 528ms (next.js: 9ms, proxy.ts: 186ms, application-code: 333ms)
+ GET /dashboard/solicitudes 200 in 905ms (next.js: 10ms, proxy.ts: 592ms, application-code: 303ms)
+✓ Compiled in 4.2s
+ GET /dashboard/solicitudes 200 in 2.9s (next.js: 414ms, proxy.ts: 582ms, application-code: 1909ms)
+ GET /dashboard/solicitudes 200 in 1916ms (next.js: 411ms, proxy.ts: 1021ms, application-code: 485ms)
+ GET /dashboard/solicitudes 200 in 558ms (next.js: 10ms, proxy.ts: 202ms, application-code: 346ms)
+ GET /dashboard/solicitudes 200 in 516ms (next.js: 9ms, proxy.ts: 181ms, application-code: 326ms)
+ GET /dashboard/solicitudes 200 in 523ms (next.js: 10ms, proxy.ts: 194ms, application-code: 319ms)
+ GET /dashboard/solicitudes 200 in 498ms (next.js: 8ms, proxy.ts: 198ms, application-code: 292ms)
+ GET /dashboard/solicitudes 200 in 398ms (next.js: 7ms, proxy.ts: 178ms, application-code: 213ms)
+ GET /dashboard/solicitudes 200 in 456ms (next.js: 10ms, proxy.ts: 256ms, application-code: 191ms)
+ GET /dashboard/solicitudes 200 in 366ms (next.js: 11ms, proxy.ts: 168ms, application-code: 187ms)
+ GET /dashboard/solicitudes 200 in 405ms (next.js: 9ms, proxy.ts: 173ms, application-code: 223ms)
+ GET /dashboard/solicitudes 200 in 430ms (next.js: 8ms, proxy.ts: 183ms, application-code: 239ms)
+ GET /dashboard/solicitudes 200 in 613ms (next.js: 8ms, proxy.ts: 401ms, application-code: 203ms)
+ GET /dashboard/solicitudes 200 in 682ms (next.js: 188ms, proxy.ts: 197ms, application-code: 297ms)
+ GET /dashboard/solicitudes 200 in 624ms (next.js: 7ms, proxy.ts: 170ms, application-code: 447ms)
+ GET /dashboard/solicitudes 200 in 640ms (next.js: 8ms, proxy.ts: 203ms, application-code: 429ms)
+ GET /dashboard/solicitudes 200 in 1570ms (next.js: 8ms, proxy.ts: 544ms, application-code: 1018ms)
+ GET /dashboard/solicitudes 200 in 1706ms (next.js: 456ms, proxy.ts: 812ms, application-code: 438ms)
+ GET /dashboard/solicitudes 200 in 403ms (next.js: 6ms, proxy.ts: 175ms, application-code: 222ms)
+ GET /dashboard/solicitudes 200 in 367ms (next.js: 8ms, proxy.ts: 176ms, application-code: 183ms)
+ GET /api/notificaciones 200 in 721ms (next.js: 180ms, proxy.ts: 169ms, application-code: 372ms)
+ GET /api/notificaciones 200 in 523ms (next.js: 10ms, proxy.ts: 166ms, application-code: 347ms)
+✓ Compiled in 6s
+ GET /dashboard/solicitudes 200 in 1845ms (next.js: 498ms, proxy.ts: 905ms, application-code: 442ms)
+ GET /dashboard/solicitudes 200 in 334ms (next.js: 6ms, proxy.ts: 179ms, application-code: 150ms)
+ GET /dashboard/solicitudes 200 in 327ms (next.js: 5ms, proxy.ts: 167ms, application-code: 156ms)
+✓ Finished writing to filesystem cache in 14.8s
+ GET /dashboard/solicitudes 200 in 1684ms (next.js: 298ms, proxy.ts: 1027ms, application-code: 360ms)
+ GET /dashboard/solicitudes 200 in 388ms (next.js: 17ms, proxy.ts: 187ms, application-code: 184ms)
+✓ Compiled in 717ms
+ GET /dashboard/solicitudes 200 in 1848ms (next.js: 207ms, proxy.ts: 1351ms, application-code: 290ms)
+ GET /dashboard/solicitudes 200 in 388ms (next.js: 4ms, proxy.ts: 228ms, application-code: 155ms)
+✓ Finished writing to filesystem cache in 25.3s
+✓ Finished writing to filesystem cache in 23.0s
