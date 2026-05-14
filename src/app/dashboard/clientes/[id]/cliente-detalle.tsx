@@ -125,11 +125,12 @@ export default function ClienteDetalle({ cliente, notas: notasIniciales, histori
   }
 
   function formatFecha(iso: string) {
-    return new Date(iso).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })
+    return new Date(iso).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })
   }
 
   async function generarPDF() {
-    const { jsPDF } = await import("jspdf")
+    const jsPDFModule = await import("jspdf")
+    const jsPDF = jsPDFModule.default || (jsPDFModule as any).jsPDF
     const doc = new jsPDF()
     const margin = 20
     let y = margin
