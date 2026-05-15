@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server"
 import { createClient } from "@/lib/supabase/server"
 import { createAdminClient } from "@/lib/supabase/admin"
-import { Resend } from "resend"
+import { BrevoClient, BrevoEnvironment } from "@getbrevo/brevo"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getBrevoClient() {
+  return new BrevoClient({ apiKey: process.env.BREVO_API_KEY!, environment: BrevoEnvironment.Default })
+}
 
 function reemplazarVariables(texto: string, vars: Record<string, string>) {
   return texto
@@ -89,11 +91,12 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    await resend.emails.send({
-      from: "Nexus CRM <onboarding@resend.dev>",
-      to: cliente.email,
+    const brevo = getBrevoClient()
+    await brevo.transactionalEmails.sendTransacEmail({
+      sender: { name: "Nexus CRM", email: "noreply@nexuscrm.com" },
+      to: [{ email: cliente.email, name: vars.nombre }],
       subject: asunto,
-      html: construirHTML(cuerpo, vars.nombre),
+      htmlContent: construirHTML(cuerpo, vars.nombre),
     })
     return NextResponse.json({ ok: true })
   } catch (err: any) {
