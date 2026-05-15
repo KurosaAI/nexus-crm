@@ -9,7 +9,7 @@ CRM completo para gestión de clientes y equipo de ventas. Construido con Next.j
 - **Asignación masiva** — Selección múltiple con distribución equitativa entre empleados
 - **Importar / Exportar** — CSV con vista previa y Excel con filtros de fecha
 - **Dashboard** — KPIs, gráfica de línea y gráfica de dona con datos reales
-- **Emails automáticos** — Bienvenida al cliente al registrarse (Resend)
+- **Emails automáticos** — Bienvenida y notificaciones por cambio de estado (Brevo, 300/día gratis)
 - **12 idiomas** — Selector de idioma en el panel
 - **Dos roles** — Admin (vista global) y Vendedor (solo sus clientes)
 
@@ -24,7 +24,7 @@ CRM completo para gestión de clientes y equipo de ventas. Construido con Next.j
 | SheetJS (xlsx) | Exportar a Excel |
 | PapaParse | Importar CSV |
 | jsPDF | Generar fichas PDF |
-| Resend | Emails automáticos |
+| Brevo | Emails automáticos (300/día gratis) |
 | react-hot-toast | Notificaciones |
 
 ## Instalación
@@ -67,8 +67,8 @@ Edita `.env.local` con tus claves de Supabase (Settings → API):
 - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` — anon/public key
 - `SUPABASE_SERVICE_ROLE_KEY` — service_role key (mantener privada)
 
-Para emails (opcional):
-- `RESEND_API_KEY` — Obtén una clave gratuita en [resend.com](https://resend.com)
+Para emails automáticos (opcional):
+- `BREVO_API_KEY` — Crea cuenta gratuita en [brevo.com](https://brevo.com) → SMTP y API → Claves API
 
 ### 6. Verificar configuración
 

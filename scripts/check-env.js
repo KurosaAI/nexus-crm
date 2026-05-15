@@ -8,7 +8,7 @@ const required = [
   "SUPABASE_SERVICE_ROLE_KEY",
 ]
 
-const optional = ["RESEND_API_KEY"]
+const optional = ["BREVO_API_KEY", "ANTHROPIC_API_KEY"]
 
 require("dotenv").config({ path: ".env.local" })
 
@@ -29,7 +29,7 @@ for (const key of required) {
 for (const key of optional) {
   const val = process.env[key]
   if (!val || val.includes("...")) {
-    console.warn(`  ⚠  ${key} — no configurado (emails desactivados)`)
+    console.warn(`  ⚠  ${key} — no configurado (funcionalidad desactivada)`)
   } else {
     console.log(`  ✓  ${key}`)
   }
