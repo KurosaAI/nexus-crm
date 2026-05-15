@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
   try {
     const brevo = getBrevoClient()
     await brevo.transactionalEmails.sendTransacEmail({
-      sender: { name: "Nexus CRM", email: "noreply@nexuscrm.com" },
+      sender: { name: "Nexus CRM", email: "pruebadeagentes@gmail.com" },
       to: [{ email: clienteEmail, name: clienteNombre }],
       subject: `Bienvenido, ${clienteNombre}`,
       htmlContent: html,

@@ -61,10 +61,16 @@ export default function NuevoClientePage() {
       if (error) throw error
 
       if (email.trim() && clienteCreado) {
-        fetch("/api/email/plantilla", {
+        const vendedorNombre = vendedores.find(v => v.id === vendedorId)?.nombre
+        fetch("/api/email/bienvenida", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ tipo: "bienvenida", clienteId: clienteCreado.id }),
+          body: JSON.stringify({
+            clienteNombre: nombre.trim(),
+            clienteEmail: email.trim(),
+            vendedorNombre: vendedorNombre || null,
+            empresaNombre: empresa.trim() || null,
+          }),
         })
       }
 
