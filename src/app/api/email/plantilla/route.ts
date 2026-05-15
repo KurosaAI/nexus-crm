@@ -83,11 +83,21 @@ export async function POST(req: NextRequest) {
       .eq("activa", true)
       .single()
 
-    if (!plantilla?.cuerpo) return NextResponse.json({ ok: true, skipped: true })
+    const ESTADO_LABELS: Record<string, string> = {
+      prospecto: "Prospecto", contactado: "Contactado", propuesta: "Propuesta enviada",
+      cliente: "Cliente", inactivo: "Inactivo",
+    }
 
-    vars.dias = String(plantilla.dias_sin_actividad ?? 7)
-    asunto = reemplazarVariables(plantilla.asunto || "Mensaje de Nexus CRM", vars)
-    cuerpo = reemplazarVariables(plantilla.cuerpo, vars)
+    if (!plantilla?.cuerpo) {
+      // Email por defecto cuando no hay plantilla configurada
+      const estadoLabel = ESTADO_LABELS[tipo] ?? tipo
+      asunto = `Actualización de tu estado en Nexus CRM`
+      cuerpo = `Hola [nombre],\n\nTe informamos que tu estado ha sido actualizado a: ${estadoLabel}.\n\nSi tienes alguna pregunta, no dudes en contactarnos.\n\nSaludos,\n${vars.vendedor || "El equipo"}`
+    } else {
+      vars.dias = String(plantilla.dias_sin_actividad ?? 7)
+      asunto = reemplazarVariables(plantilla.asunto || "Mensaje de Nexus CRM", vars)
+      cuerpo = reemplazarVariables(plantilla.cuerpo, vars)
+    }
   }
 
   try {
