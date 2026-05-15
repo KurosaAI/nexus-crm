@@ -69,17 +69,17 @@ function construirHTMLManual(cuerpo: string, nombre: string) {
 </html>`
 }
 
-const TEMPLATES: Record<string, { acento: string; icono: string; titulo: string; asunto: string; html: (nombre: string, vendedor: string, empresa: string) => string }> = {
+const TEMPLATES: Record<string, { acento: string; icono: string; titulo: string; asunto: string; html: (nombre: string, vendedor: string) => string }> = {
   prospecto: {
     acento: "#6366f1",
     icono: "🔍",
     titulo: "Estamos interesados en ti",
     asunto: "Hemos registrado tu perfil en nuestro sistema",
-    html: (nombre, vendedor, empresa) => construirHTMLEstado(nombre, "#6366f1", "🔍", "Estamos interesados en ti",
-      p(`Nos complace informarte que hemos registrado tu perfil como prospecto${empresa ? ` de <strong>${empresa}</strong>` : ""}.`) +
-      p("Estamos explorando cómo podemos ayudarte y en breve nos pondremos en contacto contigo para conocer mejor tus necesidades.") +
+    html: (nombre, vendedor) => construirHTMLEstado(nombre, "#6366f1", "🔍", "Estamos interesados en ti",
+      p("Nos complace informarte que hemos registrado tu perfil en nuestro sistema. Estamos explorando cómo podemos ayudarte y en breve nos pondremos en contacto para conocer mejor tus necesidades.") +
+      p("Valoramos tu interés y queremos asegurarnos de brindarte la mejor experiencia desde el primer momento.") +
       caja(
-        `<p style="margin:0;font-size:13px;color:#4338ca;font-weight:600;">¿Tienes alguna pregunta antes de comenzar?</p><p style="margin:4px 0 0;font-size:13px;color:#6366f1;">No dudes en responder a este correo, estamos aquí para ayudarte.</p>`,
+        `<p style="margin:0;font-size:13px;color:#4338ca;font-weight:600;">¿Tienes alguna pregunta?</p><p style="margin:4px 0 0;font-size:13px;color:#6366f1;">Tu asesor ${vendedor || "de Nexus CRM"} estará en contacto contigo muy pronto.</p>`,
         "#eef2ff"
       ),
       vendedor
@@ -90,11 +90,11 @@ const TEMPLATES: Record<string, { acento: string; icono: string; titulo: string;
     icono: "📞",
     titulo: "Hemos iniciado contacto",
     asunto: "Tu asesor está listo para atenderte",
-    html: (nombre, vendedor, empresa) => construirHTMLEstado(nombre, "#0ea5e9", "📞", "Hemos iniciado contacto",
-      p(`Queremos que sepas que${vendedor ? ` <strong>${vendedor}</strong>` : " nuestro equipo"} ya está trabajando en tu caso${empresa ? ` en <strong>${empresa}</strong>` : ""} y estará en contacto contigo muy pronto.`) +
-      p("Este es el primer paso hacia una colaboración exitosa. Nuestro compromiso es brindarte la mejor experiencia posible.") +
+    html: (nombre, vendedor) => construirHTMLEstado(nombre, "#0ea5e9", "📞", "Hemos iniciado contacto",
+      p(`Queremos que sepas que${vendedor ? ` <strong>${vendedor}</strong>` : " nuestro equipo"} ya está trabajando en tu caso y estará en contacto contigo muy pronto.`) +
+      p("Este es el primer paso hacia una colaboración exitosa. Nuestro compromiso es brindarte la mejor atención posible.") +
       caja(
-        `<p style="margin:0;font-size:13px;color:#0369a1;font-weight:600;">Próximo paso</p><p style="margin:4px 0 0;font-size:13px;color:#0ea5e9;">Prepárate para recibir nuestra llamada o mensaje en las próximas horas.</p>`,
+        `<p style="margin:0;font-size:13px;color:#0369a1;font-weight:600;">Próximo paso</p><p style="margin:4px 0 0;font-size:13px;color:#0ea5e9;">Prepárate para recibir nuestra comunicación en las próximas horas.</p>`,
         "#f0f9ff"
       ),
       vendedor
@@ -105,11 +105,11 @@ const TEMPLATES: Record<string, { acento: string; icono: string; titulo: string;
     icono: "📋",
     titulo: "Tenemos una propuesta para ti",
     asunto: "Tu propuesta personalizada está lista",
-    html: (nombre, vendedor, empresa) => construirHTMLEstado(nombre, "#f59e0b", "📋", "Tenemos una propuesta para ti",
-      p(`Nos complace informarte que hemos preparado una propuesta personalizada especialmente para ti${empresa ? ` y <strong>${empresa}</strong>` : ""}.`) +
-      p("Hemos analizado cuidadosamente tus necesidades y creemos que tenemos la solución ideal para alcanzar tus objetivos.") +
+    html: (nombre, vendedor) => construirHTMLEstado(nombre, "#f59e0b", "📋", "Tenemos una propuesta para ti",
+      p("Hemos preparado una propuesta personalizada especialmente para ti. Hemos analizado cuidadosamente tus necesidades y creemos tener la solución ideal para alcanzar tus objetivos.") +
+      p("Queremos acompañarte en cada paso del proceso y asegurarnos de que esta propuesta supere tus expectativas.") +
       caja(
-        `<p style="margin:0;font-size:13px;color:#92400e;font-weight:600;">¿Listo para dar el siguiente paso?</p><p style="margin:4px 0 0;font-size:13px;color:#b45309;">Responde este correo o contacta a ${vendedor || "tu asesor"} para revisar los detalles juntos.</p>`,
+        `<p style="margin:0;font-size:13px;color:#92400e;font-weight:600;">¿Listo para dar el siguiente paso?</p><p style="margin:4px 0 0;font-size:13px;color:#b45309;">Tu asesor ${vendedor || "de Nexus CRM"} te contactará pronto para revisar los detalles.</p>`,
         "#fffbeb"
       ),
       vendedor
@@ -120,11 +120,11 @@ const TEMPLATES: Record<string, { acento: string; icono: string; titulo: string;
     icono: "🎉",
     titulo: "¡Bienvenido a la familia!",
     asunto: "¡Bienvenido como cliente oficial!",
-    html: (nombre, vendedor, empresa) => construirHTMLEstado(nombre, "#10b981", "🎉", "¡Bienvenido a la familia!",
-      p(`Estamos emocionados de darte la bienvenida como cliente oficial${empresa ? ` de <strong>${empresa}</strong>` : ""}. Este es el comienzo de una relación duradera y exitosa.`) +
-      p("A partir de ahora, contarás con atención prioritaria y seguimiento personalizado en cada etapa de tu proceso.") +
+    html: (nombre, vendedor) => construirHTMLEstado(nombre, "#10b981", "🎉", "¡Bienvenido a la familia!",
+      p("Estamos emocionados de darte la bienvenida como cliente oficial. Este es el comienzo de una relación duradera y exitosa que nos llena de orgullo.") +
+      p("A partir de ahora contarás con atención prioritaria y seguimiento personalizado en cada etapa de tu proceso.") +
       caja(
-        `<p style="margin:0;font-size:14px;color:#065f46;font-weight:700;">Tu asesor de confianza</p><p style="margin:4px 0 0;font-size:13px;color:#059669;">${vendedor || "Nuestro equipo"} estará disponible para ti en todo momento. No dudes en contactarnos.</p>`,
+        `<p style="margin:0;font-size:14px;color:#065f46;font-weight:700;">Tu asesor de confianza</p><p style="margin:4px 0 0;font-size:13px;color:#059669;">${vendedor || "Nuestro equipo"} estará disponible para ti en todo momento.</p>`,
         "#ecfdf5"
       ),
       vendedor
@@ -135,11 +135,11 @@ const TEMPLATES: Record<string, { acento: string; icono: string; titulo: string;
     icono: "💤",
     titulo: "Te extrañamos",
     asunto: "Ha pasado un tiempo, ¿cómo podemos ayudarte?",
-    html: (nombre, vendedor, empresa) => construirHTMLEstado(nombre, "#64748b", "💤", "Te extrañamos",
-      p(`Notamos que ha pasado un tiempo desde nuestro último contacto${empresa ? ` con <strong>${empresa}</strong>` : ""}, y queremos asegurarnos de que estés bien.`) +
-      p("Entendemos que las prioridades cambian, pero nos gustaría retomar la conversación cuando estés listo. Seguimos aquí para ayudarte.") +
+    html: (nombre, vendedor) => construirHTMLEstado(nombre, "#64748b", "💤", "Te extrañamos",
+      p("Notamos que ha pasado un tiempo desde nuestro último contacto y queremos asegurarnos de que estés bien.") +
+      p("Entendemos que las prioridades cambian, pero nos gustaría retomar la conversación cuando estés listo. Seguimos aquí para ti.") +
       caja(
-        `<p style="margin:0;font-size:13px;color:#334155;font-weight:600;">¿Podemos hacer algo por ti?</p><p style="margin:4px 0 0;font-size:13px;color:#64748b;">Responde este correo y con gusto retomamos desde donde lo dejamos.</p>`,
+        `<p style="margin:0;font-size:13px;color:#334155;font-weight:600;">Cuando quieras, aquí estamos</p><p style="margin:4px 0 0;font-size:13px;color:#64748b;">Tu asesor ${vendedor || "de Nexus CRM"} estará encantado de retomar el contacto contigo.</p>`,
         "#f8fafc"
       ),
       vendedor
@@ -195,7 +195,7 @@ export async function POST(req: NextRequest) {
     } else if (TEMPLATES[tipo]) {
       const tpl = TEMPLATES[tipo]
       asunto = tpl.asunto
-      htmlContent = tpl.html(vars.nombre, vars.vendedor, vars.empresa)
+      htmlContent = tpl.html(vars.nombre, vars.vendedor)
     } else {
       return NextResponse.json({ ok: true, skipped: true })
     }
